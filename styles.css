@@ -14,9 +14,10 @@
 body{
     min-height: 100vh;
     background-color: var(--background);
+    font-size: 16px;
 }
 nav{
-    position: fixed;
+    position:fixed;
     top: 0;
     width: 100%;
     padding: 2em 15%;
@@ -26,15 +27,19 @@ nav{
     background-color: rgba(15,15,15,0.8);
     backdrop-filter: blur(10px);
     z-index: 1000;
+    overflow: hidden;
 }
-ul{
+nav ul{
     display: flex;
     align-items: center;
     gap: 3em;
 }
+nav ul.active {
+    display: flex;
+}
 nav ul a{
     color: white;
-    opacity: 0.7;
+    opacity: 0.9;
     transition: 0.2s ease-in-out;
 }
 nav ul a:hover{
@@ -50,7 +55,7 @@ nav ul a:hover{
 .logo:hover{
     opacity: 1;
 }
-btn{
+.btn{
     padding: 0.5em 1em;
     color: white;
     font-weight: 500;
@@ -70,10 +75,15 @@ span{
     background-clip: text;
     color: transparent;
 }
-menu{
+#menu{
     color:white;
     font-size: 3em;
-    display: none;
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    z-index: 1001;
 }
 section{
     min-height: 100vh;
@@ -86,29 +96,58 @@ section{
     justify-content: center;
     gap: 2em;
     color: white;
+    padding-top: 150px;
+    transform: translateY(20px);
+    animation: fadeIn 1.5s ease-out forwards;
 }
-#home img{
-    width: 18vw;
-    border-radius: 50%;
-    margin-top: 3em;
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+#home h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+#home p {
+    color: white;
+    opacity: 0.9;
+    font-size: 1.1em;
+    max-width: 600px;
+    text-align: center;
+}
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
 }
 .info-box{
     display: flex;
     flex-direction: column;
     text-align: center;
-    gap: 0.5em;
+    align-items: center;
+    gap: 1em;
     max-width: 600px;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2em;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0px 4px 20px rgba(255, 255, 255, 0.1);
 }
-.info-box h1{
-    font-size: 5em;
-    font-weight: 500;
-}
-.info-box h3{
-    font-size: 2em;
-    font-weight: 400;
+.info-box h2{
+    font-size: 2.5em;
+    font-weight: 600;
 }
 .info-box p{
     opacity: 0.7;
+    font-size:1.5em;
+    text-align: center;
 }
 ::-webkit-scrollbar{
     width: 20px;
@@ -135,11 +174,13 @@ section{
     gap: 2em;
 }
 .about-box h1{
-    font-size: 5em;
+    font-size: 3.5em;
 }
 .about-box p{
     color: white;
-    opacity: 0.8;
+    opacity: 0.9;
+    font-size: 1.1em;
+    line-height: 1.6;
 }
 .skills{
     display: flex;
@@ -147,7 +188,7 @@ section{
     gap: 10em;
 }
 .skills ul{
-    font-size: 1.3em;
+    font-size: 1.2em;
     font-weight: 500;
     display: flex;
     flex-direction: column;
@@ -163,7 +204,8 @@ section{
     transition: 0.3s ease-in-out;
 }
 .skills ul li span:hover{
-    transform: translateX(10px);
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
 }
 .skills ul li{
     font-size: 1.2em;
@@ -245,6 +287,7 @@ footer{
     background-color: var(--background);
     width: 100%;
     padding: 5em 15%;
+    color: grey;
 }
 .col-left{
     display: flex;
@@ -349,7 +392,8 @@ footer{
         font-size: 1.5em;
     }
     #home img{
-        width: 32vw;
+        width: 120px;
+        height: 120px;
     }
     #about .skills{
         gap: 3em;
