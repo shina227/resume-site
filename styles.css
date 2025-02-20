@@ -404,12 +404,13 @@ footer {
     padding: 1.5em 0;
     text-align: center;
     display: flex;
-    align-items: center;
+    flex-direction: column;
 }
 .footer-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
     gap: 1em;
 }
 .footer-links {
@@ -512,6 +513,12 @@ footer {
     .footer-container{
         flex-direction: column;
         text-align: center;
+    }
+    .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+        align-items: center;
     }
     .projects-grid {
         grid-template-columns: 1fr;
