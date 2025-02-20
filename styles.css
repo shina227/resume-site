@@ -1,3 +1,4 @@
+/*General Styles*/
 *{
     margin: 0;
     padding: 0;
@@ -5,7 +6,7 @@
     text-decoration: none;
     list-style: none;
     scroll-behavior: smooth;
-    font-family: sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 :root{
     --background: rgb(24,24,24);
@@ -16,23 +17,28 @@ body{
     background-color: var(--background);
     font-size: 16px;
 }
+span{
+    background: linear-gradient(to right, #6cff52, #3ec5ff);
+    background-clip: text;
+    color: transparent;
+}
+/*Navigation Bar*/
 nav{
     position:fixed;
     top: 0;
     width: 100%;
-    padding: 2em 15%;
+    padding: 1.5em 10%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: rgba(15,15,15,0.8);
     backdrop-filter: blur(10px);
     z-index: 1000;
-    overflow: hidden;
 }
 nav ul{
     display: flex;
     align-items: center;
-    gap: 3em;
+    gap: 4.5em;
 }
 nav ul.active {
     display: flex;
@@ -41,12 +47,14 @@ nav ul a{
     color: white;
     opacity: 0.9;
     transition: 0.2s ease-in-out;
+    font-size: 1.2em;
 }
 nav ul a:hover{
     opacity: 1;
+    color: #3ec5ff;
 }
-.logo{
-    font-size: 2em;
+nav .logo{
+    font-size: 1.8em;
     color: white;
     font-weight: 800;
     opacity: 0.8;
@@ -61,6 +69,7 @@ nav ul a:hover{
     font-weight: 500;
     letter-spacing: 1px;
     border-radius:0.5em;
+    padding: 0.4em 1.2em;
     font-size: 1.1em;
     border: 2px solid white;
     cursor: pointer;
@@ -69,11 +78,6 @@ nav ul a:hover{
 .btn:hover{
     background-color: white;
     color: var(--background);
-}
-span{
-    background: linear-gradient(to right, #6cff52, #3ec5ff);
-    background-clip: text;
-    color: transparent;
 }
 #menu{
     color:white;
@@ -89,10 +93,12 @@ section{
     min-height: 100vh;
     padding: 5% 15%;
 }
+/*Home Section*/
 #home{
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
     justify-content: center;
     gap: 2em;
     color: white;
@@ -132,8 +138,7 @@ section{
     text-align: center;
     align-items: center;
     gap: 1em;
-    max-width: 600px;
-    max-width: 800px;
+    max-width: 750px;
     margin: 0 auto;
     padding: 2em;
     background: rgba(255, 255, 255, 0.1);
@@ -143,12 +148,14 @@ section{
 .info-box h2{
     font-size: 2.5em;
     font-weight: 600;
+    animation: fadeIn 1s ease-in-out;
 }
 .info-box p{
-    opacity: 0.7;
+    opacity: 0.8;
     font-size:1.5em;
     text-align: center;
 }
+/*Scroll bar*/
 ::-webkit-scrollbar{
     width: 20px;
     background-color: var(--background);
@@ -156,6 +163,7 @@ section{
 ::-webkit-scrollbar-thumb{
     background: linear-gradient(to bottom, #6cff52, #3ec5ff);
 }
+/*About Section*/
 #about{
     background-color: var(--second-background);
     display: flex;
@@ -221,6 +229,7 @@ section{
     font-size: 3.5em;
     margin: 0.5em 0;
 }
+/*Education Section*/
 .education-container{
     display: grid;
     grid-template-columns: repeat(auto-fit, minimax(250px, 1fr));
@@ -232,11 +241,16 @@ section{
     color: white;
     opacity: 0.8;
 }
-.education-item h4{
-font-weight: bold;
-}
-.education-item p{
+.timeline {
+    display: flex;
+    flex-direction: column;
     gap: 2em;
+    padding-left: 20px;
+    margin-top: 2em;
+}
+.education-item h3{
+    font-size: 1.8em;
+    margin-bottom: 0.3em;
 }
 .education-item{
     padding: 1.5em;
@@ -246,10 +260,20 @@ font-weight: bold;
 .education-item:hover{
     border: 3px solid rgb(100,100,100);
 }
-.education-item h3{
-    font-size:1.4em;
-    margin-bottom: 0.3em;
+.education-item ul{
+    list-style: none;
+    padding-left: 0;
 }
+.education-item ul li {
+    text-align: left;
+    font-size: 1.1em;
+    margin-bottom: 0.5em;
+}
+.education-item ul li i {
+    color: #3ec5ff;
+    margin-right: 0.5em;
+}
+/*Projects Section*/
 .projects-container{
     max-width: 1100px;
     margin: 0 auto;
@@ -263,7 +287,7 @@ font-weight: bold;
     justify-content: center;
 }
 .header{
-    font-size: 3.5em;
+    font-size: 3.0em;
 }
 .project-box{
     border: 3px solid rgb(49,49,49);
@@ -309,85 +333,96 @@ font-weight: bold;
 .project-box a:hover {
     background: #6cff52;
 }
+.more-projects{
+    margin-top: 2em;
+    font-size: 1.3em;
+    font-style: italic;
+    opacity:0.8;
+    color: white;
+    text-align: center;
+}
+.more-projects a{
+    color: turquoise;
+}
+/*Contact Section*/
 #contact{
     background-color: var(--second-background);
 }
-form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2em;
+.contact-container {
+    text-align: center;
+    padding: 2em;
 }
-form .input-box{
-    display: flex;
-    flex-direction: column;
-    align-items: baseline;
-    gap: 1em;
-}
-.input-box span{
-    font-size: 1.5em;
-}
-form input{
+.contact-container p{
+    color: white;
     font-size: 1.3em;
-    padding: 1em 5em;
-    border-radius: 0.5em;
-    border: none;
-    outline: none;
+    opacity: 0.8;
 }
-form input:focus{
-    background: rgb(229,229,229);
+.contact-container h3{
+    font-size: 2.7em;
+    margin-bottom: 0.3em;
 }
-footer{
+.contact-links {
     display: flex;
-    align-items: center;
     justify-content: center;
-    gap: 10em;
-    bottom: 0;
-    background-color: var(--background);
-    width: 100%;
-    padding: 5em 15%;
-    color: grey;
+    flex-wrap: wrap;
+    gap: 1.5em;
+    margin-top: 2em;
 }
-.col-left{
+.contact-card {
     display: flex;
     flex-direction: column;
-    gap: 1em;
-}
-.col-box{
-    display: flex;
     align-items: center;
-    gap: 1em;
-}
-.col-box i{
-    font-size: 2em;
-}
-.col-box span{
+    justify-content: center;
+    background:rgba(255, 255, 255, 0.1);
+    padding: 1.2em;
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    color: white;
+    opacity:0.8;
     font-size: 1.2em;
+    transition: transform 0.3s, background 0.3s;
 }
-.col-right{
-    display:flex;
+.contact-card i {
+    font-size: 2.0em;
+    margin-bottom: 0.5em;
+}
+.contact-card:hover {
+    transform: scale(1.1);
+    background: #3ec5ff;
+}
+.contact-card:hover i{
+    color: black;
+}
+.contact-card:hover span{
+    color: black;
+}
+/*Footer*/
+footer {
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 1.5em 0;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+.footer-container {
+    display: flex;
     flex-direction: column;
-    gap: 1em;
-    color: white;
-    max-width: 500px;
-}
-.col-right span{
-    font-size: 1.3em;
-}
-.col-right .social-icons{
-    display:flex;
-    align-items: baseline;
-    justify-content: left;
+    align-items: center;
     gap: 1em;
 }
-.col-right .social-icons i{
-    font-size: 2em;
-    transition: 0.2s ease-in-out;
-    cursor: pointer;
+.footer-links {
+    display: flex;
+    gap: 1.5em;
 }
-.social-icons i:hover{
+.footer-links a {
     color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+.footer-links a:hover {
+    color: #3ec5ff;
 }
 
 @media(max-width:968px){
@@ -474,10 +509,9 @@ footer{
         padding: 0.5em 1em;
     }
 
-    footer{
+    .footer-container{
         flex-direction: column;
-        gap: 5em;
-        align-items: baseline;
+        text-align: center;
     }
     .projects-grid {
         grid-template-columns: 1fr;
