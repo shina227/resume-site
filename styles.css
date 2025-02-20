@@ -218,36 +218,96 @@ section{
 }
 .header{
     text-align: center;
-    font-size: 5em;
+    font-size: 3.5em;
     margin: 0.5em 0;
 }
 .education-container{
     display: grid;
     grid-template-columns: repeat(auto-fit, minimax(250px, 1fr));
     gap: 2em;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2em;
+    text-align: left;
+    color: white;
+    opacity: 0.8;
 }
-.box{
+.education-item h4{
+font-weight: bold;
+}
+.education-item p{
+    gap: 2em;
+}
+.education-item{
+    padding: 1.5em;
+    border-radius:10px;
+    border: 3px solid rgb(49,49,49);
+}
+.education-item:hover{
+    border: 3px solid rgb(100,100,100);
+}
+.education-item h3{
+    font-size:1.4em;
+    margin-bottom: 0.3em;
+}
+.projects-container{
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2em;
+    text-align: center;
+}
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2em;
+    justify-content: center;
+}
+.header{
+    font-size: 3.5em;
+}
+.project-box{
     border: 3px solid rgb(49,49,49);
     border-radius: 0.5em;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    overflow: hidden;
-    object-fit: cover;
-    padding: 3em;
+    align-items: center;
+    padding: 1.5em;
     gap: 2em;
     color: white;
     cursor: pointer;
-    transition: 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
 }
-.box:hover{
+.project-box img{
+    width: 100%;
+    max-width: 280px;
+    border-radius: 10px;
+    margin-bottom: 1em;
+}
+.project-box:hover{
     border: 3px solid rgb(100,100,100);
+    transform: scale(1.05);
 }
-.box p{
+.project-box p{
     opacity: 0.8;
+    font-size: 1.0em;
+    line-height: 1.6;
 }
-.box h3{
-    font-size: 2em;
+.project-box h3{
+    font-size: 1.4em;
+    margin-bottom: 0.5em;
+}
+.project-box a {
+    display: inline-block;
+    background: hsl(198, 100%, 62%);
+    color: black;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 1em;
+    transition: 0.3s;
+}
+.project-box a:hover {
+    background: #6cff52;
 }
 #contact{
     background-color: var(--second-background);
@@ -383,6 +443,9 @@ footer{
     #about ul{
         font-size: 1em;
     }
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 @media(max-width:768px){
     #home h1{
@@ -415,5 +478,8 @@ footer{
         flex-direction: column;
         gap: 5em;
         align-items: baseline;
+    }
+    .projects-grid {
+        grid-template-columns: 1fr;
     }
 }
